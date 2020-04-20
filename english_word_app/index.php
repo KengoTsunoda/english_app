@@ -18,7 +18,8 @@
             <input type="button" id="btn1" value="ボタン" onclick="btnClick();" />
             <div id="output"></div>
             <h1>
-                <!-- 外部ファイルの読み込み -->
+                <!-- 外部ファイルの読み込み → JSでAPIたたいてJSONでレスポンス受ける -->
+                <!-- Vue リスト使ってみる、ページ遷移 -->
                 <?php require("php/connect_db.php"); ?>
             </h1>
         </div>
