@@ -11,7 +11,7 @@
     echo "データベースの接続に成功しました。\n";
   }
 
-  $sql = "SELECT no, english_word, japanese_word from word;";
+  $sql = "SELECT * from words;";
   if ( !$result = mysqli_query($conn, $sql)) {
     print ("Failed : $sql\n");
     exit;
@@ -19,7 +19,9 @@
   $row = mysqli_fetch_array($result);
   print $row[0] ."\n";
   print $row[1] ."\n";
-  echo $row[2] ."\n";
+  print $row[2] ."\n";
+  print $row[3] ."\n";
+  print $row[4] ."\n";
 
   mysqli_free_result($result);
 

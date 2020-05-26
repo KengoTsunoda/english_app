@@ -4,8 +4,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>TestPage</title>
         <!--<link rel="stylesheet" href="style.css">-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
         <script src="js/main.js"></script>
     </head>
     <body>
@@ -20,8 +21,19 @@
             <h1>
                 <!-- 外部ファイルの読み込み → JSでAPIたたいてJSONでレスポンス受ける -->
                 <!-- Vue リスト使ってみる、ページ遷移 -->
-                <?php require("php/connect_db.php"); ?>
+                <!-- <?php require("php/connect_db.php"); ?> -->
             </h1>
+            <h2>設定</h2>
+            <p>
+                年齢: <input type="text" id="age" value="24"><br>
+                職業: <input type="text" id="job" value="学生"><br>
+                <input type="button" id="execute" value="送信"><br>
+            </p>
+            <h2>結果</h2>
+            <p>
+                可否: <input type="text" id="result" value=""><br> 
+                内容: <input type="text" id="detail" value=""><br>
+            </p>
         </div>
     </body>
 </html>
