@@ -11,25 +11,48 @@ $(function () {
         $.ajax({
             url: '../english_word_app/php/readWord.php',
             type: 'post',
-            dataType: 'json'
+            dataType: 'json',
+            // 送信データを指定（getの場合は自動的にurlの後ろにクエリとして付加される）
+            data: {
+                from: $('#from').val(),
+                to: $('#to').val(),
+            },
         })
 
         // ステータスコードは正常で、dataTypeで定義したようにパースできたとき
         .done(function (response) {
             $('#result').val('成功');
-            $('#detail').val(response.result);
+            json = $('#detail').val(response.result);
+            putJson(json)
         })
 
         // サーバからステータスコード400以上が返ってきたとき
         // Ajax通信が失敗したとき
-        .fail(function () {
+        .fail(function (response) {
             $('#result').val('失敗');
-            $('#detail').val('');
+            $('#detail').val(response);
         });
     });
 });
 
-// DOMを全て読み込んだ後に実行される
+// JSONをHTMLで表示する
+function putJson(json){
+    target = $('#detail2');
+    $.getJSON(json, function(data,status){
+        for(var n in data) {
+            var text = '<li>';
+            if (data[n].url){
+                line = '<a href="'+data[n].url+'" target="_blank"><span>'+data[n].name+'</span></a>';
+            }else{
+                line = '<i><span>'+data[n].name+'</span></i>';
+            }
+            text = text+line+'</li>';
+            $(target).append(text);
+        }
+    });
+};
+
+/*// DOMを全て読み込んだ後に実行される
 $(function () {
     $('#execute').click(function() {
         // Ajax通信を開始する
@@ -57,4 +80,4 @@ $(function () {
             $('#detail').val('');
         });
     });
-});
+});*/
