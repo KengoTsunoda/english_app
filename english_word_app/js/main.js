@@ -22,8 +22,7 @@ $(function () {
         // ステータスコードは正常で、dataTypeで定義したようにパースできたとき
         .done(function (response) {
             $('#result').val('成功');
-            json = $('#detail').val(response.result);
-            putJson(json)
+            putJson(response.result)
         })
 
         // サーバからステータスコード400以上が返ってきたとき
@@ -37,19 +36,10 @@ $(function () {
 
 // JSONをHTMLで表示する
 function putJson(json){
-    target = $('#detail2');
-    $.getJSON(json, function(data,status){
-        for(var n in data) {
-            var text = '<li>';
-            if (data[n].url){
-                line = '<a href="'+data[n].url+'" target="_blank"><span>'+data[n].name+'</span></a>';
-            }else{
-                line = '<i><span>'+data[n].name+'</span></i>';
-            }
-            text = text+line+'</li>';
-            $(target).append(text);
-        }
-    });
+    $("#detail2").append("<li>" + json.id + "&emsp;" + json.english_word + "&emsp;" + json.japanese_word + "</li>");
+    for(var i in json) {
+        $("#detail2").append("<li>" + json[i].id + "  " + json[i].english_word + "  " + json[i].japanese_word + "</li>");
+    }
 };
 
 /*// DOMを全て読み込んだ後に実行される
