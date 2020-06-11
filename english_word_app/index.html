@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>TestPage</title>
+        <!--<link rel="stylesheet" href="style.css">-->
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+        <div class="parent">
+            <span id="first" class="cls">こんにちは！ 日本！</span>
+            <span>こんにちは！ JAPAN！</span>
+            <span>こんにちは！ 日本！</span>
+            <div>こんにちは！ 東京！</div>
+            <div>Hello world! USA!</div>
+            <input type="button" id="btn1" value="ボタン" onclick="btnClick();" />
+            <div id="output"></div>
+            <h1>
+                <!-- 外部ファイルの読み込み → JSでAPIたたいてJSONでレスポンス受ける -->
+                <!-- Vue リスト使ってみる、ページ遷移 -->
+                <!-- <?php require("php/connect_db.php"); ?> -->
+                未完了単語
+                <p>
+                    No.<input type="text" id="from" value="1">～<br>
+                    No.<input type="text" id="to" value=100><br>
+                    <input type="button" id="readWord" value="読み込み"><br>
+                </p>
+            </h1>
+            <!--<h2>設定</h2>
+            <p>
+                年齢: <input type="text" id="age" value="24"><br>
+                職業: <input type="text" id="job" value="学生"><br>
+                <input type="button" id="execute" value="送信"><br>
+            </p> -->
+            <h2>英単語</h2>
+            <p>
+                <ul id="detail2"></ul>
+            </p>
+        </div>
+    </body>
+</html>
