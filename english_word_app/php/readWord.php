@@ -13,8 +13,7 @@
 
   $result = new Connect_db();
   $result = Connect_db::connect();
-  $test = "{$result[1]}";
-
+  
   // JSON形式にして返す
   echo json_encode(compact('result'));
 

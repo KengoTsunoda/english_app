@@ -8,16 +8,24 @@
       }
     
       // 接続状況をチェックします
+      // mysql接続コマンド
+      // mysql -u root -p
       if (mysqli_connect_errno()) {
         die("データベースに接続できません:" . mysqli_connect_error() . "\n");
       } else {
         //echo "データベースの接続に成功しました。\n";
       }
     
-      $sql = "SELECT * from words;";
+      $sql = "SELECT id, english_word, japanese_word FROM words;";
       if ( !$result = mysqli_query($conn, $sql)) {
         print ("Failed : $sql\n");
         exit;
+      }
+      $wordArray = array();
+      foreach ($result as $row) {
+        //echo $row['id'].'：'.$row['english_word'].$row['japanese_word'];
+        //echo "\n";
+        array_push($wordArray, $row);
       }
       $row = mysqli_fetch_array($result);
     
@@ -28,8 +36,7 @@
         exit;
       }
 
-      return $row;
+      return $wordArray;
     }
   }
-  
 ?>

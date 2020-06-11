@@ -36,9 +36,8 @@ $(function () {
 
 // JSONをHTMLで表示する
 function putJson(json){
-    $("#detail2").append("<li>" + json.id + "&emsp;" + json.english_word + "&emsp;" + json.japanese_word + "</li>");
     for(var i in json) {
-        $("#detail2").append("<li>" + json[i].id + "  " + json[i].english_word + "  " + json[i].japanese_word + "</li>");
+        $("#detail2").append("<li>" + json[i].id + "&emsp;" + json[i].english_word + "&emsp;" + json[i].japanese_word + "</li>");
     }
 };
 
