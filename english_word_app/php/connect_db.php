@@ -23,8 +23,6 @@
       }
       $wordArray = array();
       foreach ($result as $row) {
-        //echo $row['id'].'：'.$row['english_word'].$row['japanese_word'];
-        //echo "\n";
         array_push($wordArray, $row);
       }
       $row = mysqli_fetch_array($result);
