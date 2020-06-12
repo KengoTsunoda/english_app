@@ -17,7 +17,4 @@
   // JSON形式にして返す
   echo json_encode(compact('result'));
 
-  //$data = "{$_POST['age']}歳、{$_POST['job']}です";
-  //echo json_encode(compact('data'));
-
 ?>
