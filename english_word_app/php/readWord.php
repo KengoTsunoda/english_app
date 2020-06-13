@@ -11,8 +11,8 @@
     $to = $_POST['to'];
   }
 
-  $result = new Connect_db();
-  $result = Connect_db::connect();
+  $connectdb = new Connect_db();
+  $result = $connectdb->connect();
   
   // JSON形式にして返す
   echo json_encode(compact('result'));

@@ -6,8 +6,7 @@
         print ("Connection failed.\n");
         exit;
       }
-    
-      // 接続状況をチェックします
+
       // mysql接続コマンド
       // mysql -u root -p
       if (mysqli_connect_errno()) {
@@ -16,7 +15,7 @@
         //echo "データベースの接続に成功しました。\n";
       }
     
-      $sql = "SELECT id, english_word, japanese_word FROM words;";
+      $sql = "SELECT id, english_word, japanese_word FROM words where id between ? and ?;";
       if ( !$result = mysqli_query($conn, $sql)) {
         print ("Failed : $sql\n");
         exit;
