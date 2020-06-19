@@ -35,38 +35,10 @@ $(function () {
 });
 
 // JSONをHTMLで表示する
+// Vueでコンポーネントを用意してあげる
 function putJson(json){
     for(var i in json) {
-        $("#detail2").append("<li>" + json[i].id + "&emsp;" + json[i].english_word + "&emsp;" + json[i].japanese_word + "</li>");
+        $("#detail").append("<li>" + json[i].id + "&emsp;" + json[i].english_word + "&emsp;" + json[i].japanese_word + "</li>");
+        
     }
 };
-
-/*// DOMを全て読み込んだ後に実行される
-$(function () {
-    $('#execute').click(function() {
-        // Ajax通信を開始する
-        $.ajax({
-            url: '../english_word_app/php/main.php',
-            type: 'post',
-            dataType: 'json',
-            // 送信データを指定（getの場合は自動的にurlの後ろにクエリとして付加される）
-            data: {
-                age: $('#age').val(),
-                job: $('#job').val(),
-            },
-        })
-
-        // ステータスコードは正常で、dataTypeで定義したようにパースできたとき
-        .done(function (response) {
-            $('#result').val('成功');
-            $('#detail').val(response.data);
-        })
-
-        // サーバからステータスコード400以上が返ってきたとき
-        // Ajax通信が失敗したとき
-        .fail(function () {
-            $('#result').val('失敗');
-            $('#detail').val('');
-        });
-    });
-});*/
